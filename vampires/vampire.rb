@@ -21,7 +21,7 @@ end
 
 
 def self.sunrise
-  @@coven.each |vampire|
+  @@coven.each do |vampire|
     if vampire.in_coffin == false || vampire.drank_blood_today == false
       @@coven.delete(vampire)
     end
@@ -30,9 +30,14 @@ def self.sunrise
 end
 
 def sunset
+  @@coven.each do |vampire|
+    vampire.in_coffin = false
+    vampire.drank_blood_today = false
+  end
 end
 
 def go_home
+  self.in_coffin = true
 end
 
 
