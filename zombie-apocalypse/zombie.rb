@@ -29,6 +29,12 @@ def encounter
 end
 
 def outrun_zombie?
+  my_speed = rand(@@max_speed)
+    if my_speed > @@max_speed
+      return true
+    else
+      return false
+    end
 end
 
 def survive_attack?
@@ -40,11 +46,9 @@ def self.all
 end
 
 def self.new_day
-
  self.some_die_off
  self.spawn
  self.increase_plague_level
-
 end
 
 def self.some_die_off
@@ -60,7 +64,6 @@ def self.spawn
   number.times do
     Zombie.new(rand(@@max_speed), rand(@@max_strength))
   end
-
 end
 
 def self.increase_plague_level
