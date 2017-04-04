@@ -7,6 +7,8 @@ class Zombie
 @@default_speed = 1
 @@default_strength = 3
 
+attr_accessor :speed, :strength
+
 def initialize(speed, strength)
   @speed = speed
   @strength = strength
@@ -17,6 +19,8 @@ def initialize(speed, strength)
   if strength > @@max_strength
     @strength = @@default_strength
   end
+
+  @@horde << self
 end
 
 def encounter
@@ -28,7 +32,8 @@ end
 def survive_attack?
 end
 
-def self.all?
+def self.all
+  @@horde
 end
 
 def self.new_day
@@ -44,3 +49,6 @@ def self.increase_plague_level
 end
 
 end
+
+zombie_1 = Zombie.new(2,3)
+puts Zombie.all.inspect
