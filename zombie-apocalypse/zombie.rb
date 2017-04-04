@@ -1,3 +1,5 @@
+require 'pry'
+
 class Zombie
 
 @@horde = []
@@ -34,6 +36,7 @@ end
 
 def self.all
   @@horde
+  puts "There are #{@@horde.length} alive zombies"
 end
 
 def self.new_day
@@ -45,6 +48,9 @@ def self.new_day
 end
 
 def self.some_die_off
+  m = rand(10)
+  @@horde = @@horde.drop(m)
+  puts "#{m} zombies are dead."
 end
 
 def self.spawn
@@ -63,7 +69,8 @@ end
 
 end
 
-zombie_1 = Zombie.new(2,3)
-puts Zombie.all.inspect
+
 Zombie.spawn
-puts Zombie.all.inspect
+puts Zombie.all
+puts Zombie.some_die_off
+puts Zombie.all
