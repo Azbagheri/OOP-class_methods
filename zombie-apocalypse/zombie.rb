@@ -37,6 +37,12 @@ def self.all
 end
 
 def self.new_day
+
+ self.some_die_off
+ self.spawn
+ self.increase_plague_level
+
+
 end
 
 def self.some_die_off
