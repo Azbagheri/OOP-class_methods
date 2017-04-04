@@ -26,6 +26,17 @@ def initialize(speed, strength)
 end
 
 def encounter
+    escape = self.outrun_zombie?
+    survival = self.survive_attack?
+  if escape == true
+    puts "You escaped!"
+  elsif escape == false && survival == false
+    puts "You are killed by the Zombie."
+  elsif escape ==false && survival == true
+    you = Zombie.new(2,2)
+    @@horde << you
+    puts "You are turned into a zombie."
+  end
 end
 
 def outrun_zombie?
