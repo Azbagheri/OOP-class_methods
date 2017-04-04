@@ -30,7 +30,7 @@ end
 
 def outrun_zombie?
   my_speed = rand(@@max_speed)
-    if my_speed > @@max_speed
+    if my_speed > @speed
       return true
     else
       return false
@@ -38,6 +38,12 @@ def outrun_zombie?
 end
 
 def survive_attack?
+  my_strength = rand(@@max_strength)
+    if my_strength > @strength
+      return true
+    else
+      return false
+    end
 end
 
 def self.all
