@@ -36,14 +36,7 @@ end
 
   def lent_out?
     @@on_loan.include?(self)
-    # status = @@on_loan.select do |book|
-    #    book.title == self.title
-    #  end
-    #  if status.length == 0
-    #    return false
-    #  else
-    #    return true
-    #  end
+   end
 
   end
 
@@ -79,10 +72,12 @@ end
 
 def self.available
   @@on_shelf
+  puts "There are #{@@on_shelf.length} books available in the library."
 end
 
 def self.borrowed
   @@on_loan
+  puts "There are #{@@on_loan.length} books on loan."
 end
 
 end
