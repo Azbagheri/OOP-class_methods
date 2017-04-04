@@ -59,13 +59,12 @@ end
 
 def self.all
   @@horde
-  puts "There are #{@@horde.length} alive zombies"
 end
 
 def self.new_day
- self.some_die_off
  self.spawn
  self.increase_plague_level
+ self.some_die_off
 end
 
 def self.some_die_off
@@ -90,7 +89,12 @@ end
 end
 
 
-Zombie.spawn
-puts Zombie.all
-puts Zombie.some_die_off
-puts Zombie.all
+puts Zombie.all.inspect
+Zombie.new_day
+puts Zombie.all.inspect
+zombie1 = Zombie.all[0]
+zombie2 = Zombie.all[1]
+zombie3 = Zombie.all[2]
+puts zombie1.encounter
+puts zombie2.encounter
+puts zombie3.encounter
