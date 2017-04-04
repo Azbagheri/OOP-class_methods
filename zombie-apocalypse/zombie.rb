@@ -43,6 +43,13 @@ def self.some_die_off
 end
 
 def self.spawn
+  number = rand(@@plague_level)
+  # require 'pry'
+  # binding.pry
+  number.times do
+    Zombie.new(rand(@@max_speed), rand(@@max_strength))
+  end
+
 end
 
 def self.increase_plague_level
@@ -51,4 +58,6 @@ end
 end
 
 zombie_1 = Zombie.new(2,3)
+puts Zombie.all.inspect
+Zombie.spawn
 puts Zombie.all.inspect
