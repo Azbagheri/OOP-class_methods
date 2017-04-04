@@ -42,7 +42,6 @@ def self.new_day
  self.spawn
  self.increase_plague_level
 
-
 end
 
 def self.some_die_off
@@ -59,6 +58,7 @@ def self.spawn
 end
 
 def self.increase_plague_level
+  @@plague_level = @@plague_level + rand(2)
 end
 
 end
